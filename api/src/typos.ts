@@ -5,24 +5,25 @@ export interface userType {
     privilege: string;
 }
 
-export interface productType {
+export interface ticketType {
+    idRifa: string;
+    idUser: string;
+    ticketNumber: number;
+    ticketState: string;
+}
+
+export interface rifaType {
     id: string;
-    productName: string;
+    name: string;
     price: number;
+    loot: number;
+    dateRifa: string;
+    
  }
 
-export interface productFactureType {
-   productName: string,
-   price: number,
-   kilograms: number,
-   subTotal: number 
+export interface rifaDetailType {
+   id: string;
+   rifaNumber: number;
+   rifaState: string;
 }
 
-export interface invoiceType {
-    id: string,
-    name: string,
-    ruc: number,
-    invoiceNumber: number,
-    totalPrice: number,
-    products: productFactureType
-}

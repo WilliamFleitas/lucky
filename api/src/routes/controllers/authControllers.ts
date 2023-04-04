@@ -1,7 +1,25 @@
 import { userType } from "../../typos";
-const { User } = require("../../database");
+const { User, TicketDetail, Rifa } = require("../../database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+export const getUsers = async ( ) => {
+ try {
+    const result = await User.findAll({
+      include: [
+        {
+          model: TicketDetail,
+          include: [{model: Rifa}]
+        }
+      ]
+       
+    })
+    console.log(result);
+    return result;
+ } catch (error: any) {
+  throw new Error(error);
+}
+};
+
 
 export const signUp = async (body: userType) => {
   try {

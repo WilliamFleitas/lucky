@@ -31,10 +31,12 @@ let capsEntries = entries.map((entry) => [
 ]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-// // const { Reservation, Room} = sequelize.models;
+sequelize?.models?.User.hasMany(sequelize?.models?.TicketDetail);
+sequelize?.models?.TicketDetail.belongsTo(sequelize?.models?.Rifa)
+sequelize?.models?.Rifa.hasMany(sequelize?.models?.TicketDetail);
 
-// sequelize?.models?.Invoice.belongsToMany(sequelize?.models?.Product, {through: sequelize?.models?.InvoiceDetail});
-// sequelize?.models?.Product.belongsToMany(sequelize?.models?.Invoice, {through: sequelize?.models?.InvoiceDetail});
+// sequelize?.models?.User.belongsToMany(sequelize?.models?.Rifa, {through: sequelize?.models?.TicketDetail});
+// sequelize?.models?.Rifa.belongsToMany(sequelize?.models?.User, {through: sequelize?.models?.TicketDetail});
 
 module.exports = {
   sequelize,
