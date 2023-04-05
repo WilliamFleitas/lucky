@@ -1,21 +1,21 @@
 
 const { TicketDetail, Rifa, User} = require("../../database");
 
-// export const getAllInvoices = async ( ) => {
-//   try {
-//     const result = await Invoice.findAll({include: Product});
-//     if(result){
-//       return result;
-//     }
-//     else{
-//       return "no se encontraron facturas";
-//     }
+export const getAllTickets = async ( ) => {
+  try {
+    const result = await TicketDetail.findAll({include: Rifa});
+    if(result){
+      return result;
+    }
+    else{
+      return "no se encontraron tickets";
+    }
     
-//   } catch (error: any) {
-//     console.log(error)
-//             throw new Error(error);
-//   }
-// };
+  } catch (error: any) {
+    console.log(error)
+            throw new Error(error);
+  }
+};
 
 
 export const createTicket = async(body: any, tokenId: any) => {
